@@ -25,7 +25,12 @@ GameCore::GameCore(QWidget *parent)
 void GameCore::paintEvent(QPaintEvent *)
 {
     QPainter pnt(this);
-    std::cout << "Boop\n";
+
+    for (int i = 0; i < (int)CoreGameObject::CoreGameObjects.size(); i++)
+    {
+        CoreGameObject::CoreGameObjects[i]->render(pnt);
+    }
+
     pnt.setBrush(Qt::blue);
     pnt.drawRect(geometry());
 }
@@ -34,7 +39,7 @@ void GameCore::tick()
 {
     tps++;
 
-    for (int i = 0; i < CoreGameObject::CoreGameObjects.size(); i++)
+    for (int i = 0; i < (int)CoreGameObject::CoreGameObjects.size(); i++)
     {
         CoreGameObject::CoreGameObjects[i]->tick(this);
     }

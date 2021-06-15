@@ -33,7 +33,7 @@ void CoreGameObject::tick(GameCore *)
     std::cout << "Core Tick (This does nothing!)\n";
 }
 
-void CoreGameObject::render(QPainter *)
+void CoreGameObject::render(QPainter&)
 {
-
+    std::cout << "Core Render (This does nothing!)\n";
 }

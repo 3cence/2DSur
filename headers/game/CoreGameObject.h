@@ -16,5 +16,5 @@ public:
     virtual ~CoreGameObject();
 
     virtual void tick(GameCore*);
-    virtual void render(QPainter*);
+    virtual void render(QPainter&);
 };
