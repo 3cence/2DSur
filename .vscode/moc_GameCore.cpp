@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_GameCore_t {
     QByteArrayData data[4];
-    char stringdata0[26];
+    char stringdata0[21];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,10 +34,10 @@ static const qt_meta_stringdata_GameCore_t qt_meta_stringdata_GameCore = {
 QT_MOC_LITERAL(0, 0, 8), // "GameCore"
 QT_MOC_LITERAL(1, 9, 4), // "tick"
 QT_MOC_LITERAL(2, 14, 0), // ""
-QT_MOC_LITERAL(3, 15, 10) // "increaceMs"
+QT_MOC_LITERAL(3, 15, 5) // "onSec"
 
     },
-    "GameCore\0tick\0\0increaceMs"
+    "GameCore\0tick\0\0onSec"
 };
 #undef QT_MOC_LITERAL
 
@@ -72,7 +72,7 @@ void GameCore::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->tick(); break;
-        case 1: _t->increaceMs(); break;
+        case 1: _t->onSec(); break;
         default: ;
         }
     }

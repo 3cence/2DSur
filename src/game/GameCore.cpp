@@ -1,5 +1,6 @@
 #include "game/GameCore.h"
 #include <iostream>
+#include <string>
 #include <QWidget>
 #include <QPainter>
 #include <QTime>
@@ -7,14 +8,15 @@
 GameCore::GameCore(QWidget *parent)
     : QWidget(parent)
 {
+    this->parent = parent; 
     ticker = new QTimer;
-    uptime = new QTimer;
-    ticker->setInterval(0);
-    uptime->setInterval(1);
+    secondUpdates = new QTimer;
+    ticker->setInterval(16);
+    secondUpdates->setInterval(1000);
     QObject::connect(ticker, SIGNAL(timeout()), this, SLOT(tick()));
-    QObject::connect(uptime, SIGNAL(timeout()), this, SLOT(increaceMs()));
+    QObject::connect(secondUpdates, SIGNAL(timeout()), this, SLOT(onSec()));
     ticker->start();
-    uptime->start();
+    secondUpdates->start();
 }
 
 void GameCore::paintEvent(QPaintEvent *)
@@ -26,31 +28,11 @@ void GameCore::paintEvent(QPaintEvent *)
 
 void GameCore::tick()
 {
-    if (ticksSinceLastTick >= ticksToSkip)
-    {
-        ticksSinceLastCheck++;
-        realTps++;
-        ticksSinceLastTick = 0;
-
-        if (msUptime - msOfLastTick >= 98)
-        {
-            // std::cout << "the Ticks: " << ticksSinceLastCheck << std::endl;
-            correction = ticksSinceLastCheck / (targetTps / 10 - 1);
-            ticksToSkip *= correction;
-            ticksSinceLastCheck = 0;
-            msOfLastTick = msUptime;
-        }
-    }
-    if (msUptime - msOfLastTps >= 1000)
-    {
-        std::cout << "the Ticks: " << realTps << std::endl;
-        realTps = 0;
-        msOfLastTps = msUptime;
-    }
-    ticksSinceLastTick++;
+    tps++;
 }
 
-void GameCore::increaceMs()
+void GameCore::onSec()
 {
-    msUptime++;
+    parent->setWindowTitle((std::string("2DSur: ") + std::to_string(tps) + std::string(" Tps")).c_str());
+    tps = 0;
 }
