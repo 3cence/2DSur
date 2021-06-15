@@ -7,7 +7,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-
     GameCore *gc;
     
 public:
