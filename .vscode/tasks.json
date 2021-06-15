@@ -1,0 +1,24 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: QMake",
+            "command": "/home/ecence/build.sh",
+            "args": [
+                "${workspaceFolder}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build with QMake"
+        }
+    ],
+    "version": "2.0.0"
+}
