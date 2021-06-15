@@ -54,11 +54,13 @@ OBJECTS_DIR   = bin/
 
 SOURCES       = ../src/main.cpp \
 		../src/MainWindow.cpp \
-		../src/game/GameCore.cpp moc_MainWindow.cpp \
+		../src/game/GameCore.cpp \
+		../src/game/CoreGameObject.cpp moc_MainWindow.cpp \
 		moc_GameCore.cpp
 OBJECTS       = bin/main.o \
 		bin/MainWindow.o \
 		bin/GameCore.o \
+		bin/CoreGameObject.o \
 		bin/moc_MainWindow.o \
 		bin/moc_GameCore.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -140,9 +142,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../../main.pro ../headers/MainWindow.h \
-		../headers/game/GameCore.h ../src/main.cpp \
+		../headers/game/GameCore.h \
+		src/game/CoreGameObject.h ../src/main.cpp \
 		../src/MainWindow.cpp \
-		../src/game/GameCore.cpp
+		../src/game/GameCore.cpp \
+		../src/game/CoreGameObject.cpp
 QMAKE_TARGET  = main
 DESTDIR       = bin/dist/
 TARGET        = bin/dist/main
@@ -329,8 +333,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../headers/MainWindow.h ../headers/game/GameCore.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/main.cpp ../src/MainWindow.cpp ../src/game/GameCore.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../headers/MainWindow.h ../headers/game/GameCore.h src/game/CoreGameObject.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/main.cpp ../src/MainWindow.cpp ../src/game/GameCore.cpp ../src/game/CoreGameObject.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -400,8 +404,13 @@ bin/MainWindow.o: ../src/MainWindow.cpp ../headers/MainWindow.h \
 		../headers/game/GameCore.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/MainWindow.o ../src/MainWindow.cpp
 
-bin/GameCore.o: ../src/game/GameCore.cpp ../headers/game/GameCore.h
+bin/GameCore.o: ../src/game/GameCore.cpp ../headers/game/GameCore.h \
+		../headers/game/CoreGameObject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/GameCore.o ../src/game/GameCore.cpp
+
+bin/CoreGameObject.o: ../src/game/CoreGameObject.cpp ../headers/game/CoreGameObject.h \
+		../headers/game/GameCore.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/CoreGameObject.o ../src/game/CoreGameObject.cpp
 
 bin/moc_MainWindow.o: moc_MainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/moc_MainWindow.o moc_MainWindow.cpp

@@ -14,6 +14,7 @@ public:
     QWidget *parent;
 
     GameCore(QWidget*);
+    ~GameCore();
 
 protected:
     void paintEvent(QPaintEvent*) override;

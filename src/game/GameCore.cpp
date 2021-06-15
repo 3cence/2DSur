@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QTime>
+#include "game/CoreGameObject.h"
 
 GameCore::GameCore(QWidget *parent)
     : QWidget(parent)
@@ -17,11 +18,14 @@ GameCore::GameCore(QWidget *parent)
     QObject::connect(secondUpdates, SIGNAL(timeout()), this, SLOT(onSec()));
     ticker->start();
     secondUpdates->start();
+
+    new CoreGameObject;
 }
 
 void GameCore::paintEvent(QPaintEvent *)
 {
     QPainter pnt(this);
+    std::cout << "Boop\n";
     pnt.setBrush(Qt::blue);
     pnt.drawRect(geometry());
 }
@@ -29,10 +33,28 @@ void GameCore::paintEvent(QPaintEvent *)
 void GameCore::tick()
 {
     tps++;
+
+    for (int i = 0; i < CoreGameObject::CoreGameObjects.size(); i++)
+    {
+        CoreGameObject::CoreGameObjects[i]->tick(this);
+    }
+
+    repaint();
 }
 
 void GameCore::onSec()
 {
     parent->setWindowTitle((std::string("2DSur: ") + std::to_string(tps) + std::string(" Tps")).c_str());
+    std::cout << tps << std::endl;
     tps = 0;
+}
+
+GameCore::~GameCore()
+{
+    std::cout << "Ending the World\n";
+    int total = CoreGameObject::CoreGameObjects.size();
+    for(int i = 0; i < total; i++)
+    {
+        delete CoreGameObject::CoreGameObjects[0];
+    }
 }
