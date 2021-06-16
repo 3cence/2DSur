@@ -7,7 +7,6 @@
 class CoreGameObject
 {
     long UUID;
-    QPixmap texture;
 
 public:
     static std::vector<CoreGameObject*> CoreGameObjects;
