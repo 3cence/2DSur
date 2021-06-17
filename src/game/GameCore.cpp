@@ -1,6 +1,6 @@
 #include "game/GameCore.h"
 #include "game/CoreGameObject.h"
-#include "game/Enviroment.h"
+// #include "game/Enviroment.h"
 #include <iostream>
 #include <string>
 #include <QWidget>
@@ -20,7 +20,7 @@ GameCore::GameCore(QWidget *parent)
     ticker->start();
     secondUpdates->start();
 
-    world = new Enviroment;
+    // world = new Enviroment;
 }
 
 void GameCore::paintEvent(QPaintEvent *)

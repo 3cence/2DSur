@@ -7,7 +7,7 @@
 
 class Enviroment : public CoreGameObject
 {
-    std::unordered_map<QPoint, Chunk> chunks;
+    // std::unordered_map<QPoint, Chunk> chunks;
 
 public:
     Enviroment();

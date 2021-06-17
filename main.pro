@@ -8,12 +8,16 @@ SOURCES += \
     src/main.cpp\
     src/MainWindow.cpp\
     src/game/GameCore.cpp\
-    src/game/CoreGameObject.cpp
+    src/game/CoreGameObject.cpp\
+    src/game/Enviroment.cpp\
+    src/game/Chunk.cpp
 
 HEADERS +=\
     headers/MainWindow.h\
     headers/game/GameCore.h\
-    src/game/CoreGameObject.h
+    headers/game/CoreGameObject.h\
+    headers/game/Enviroment.h\
+    headers/game/Chunk.h
 
 
 DESTDIR += bin/dist
