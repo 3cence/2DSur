@@ -1,26 +1,36 @@
 #include "game/GameCore.h"
 #include "game/CoreGameObject.h"
-// #include "game/Enviroment.h"
+#include "game/Enviroment.h"
 #include <iostream>
 #include <string>
 #include <QWidget>
 #include <QPainter>
 #include <QTime>
 
+GameCore *GameCore::kInstance = nullptr;
+
 GameCore::GameCore(QWidget *parent)
     : QWidget(parent)
 {
-    this->parent = parent; 
-    ticker = new QTimer;
-    secondUpdates = new QTimer;
-    ticker->setInterval(16);
-    secondUpdates->setInterval(1000);
-    QObject::connect(ticker, SIGNAL(timeout()), this, SLOT(tick()));
-    QObject::connect(secondUpdates, SIGNAL(timeout()), this, SLOT(onSec()));
-    ticker->start();
-    secondUpdates->start();
+    if (kInstance == nullptr)
+    {
+        this->parent = parent; 
+        kInstance = this;
+        ticker = new QTimer;
+        secondUpdates = new QTimer;
+        ticker->setInterval(16);
+        secondUpdates->setInterval(1000);
+        QObject::connect(ticker, SIGNAL(timeout()), this, SLOT(tick()));
+        QObject::connect(secondUpdates, SIGNAL(timeout()), this, SLOT(onSec()));
+        ticker->start();
+        secondUpdates->start();
 
-    // world = new Enviroment;
+        world = new Enviroment;
+    }
+    else
+    {
+        throw "A game core already exists! Only one is allowed";
+    }
 }
 
 void GameCore::paintEvent(QPaintEvent *)
@@ -42,7 +52,7 @@ void GameCore::tick()
 
     for (int i = 0; i < (int)CoreGameObject::CoreGameObjects.size(); i++)
     {
-        CoreGameObject::CoreGameObjects[i]->tick(this);
+        CoreGameObject::CoreGameObjects[i]->tick();
     }
 
     repaint();

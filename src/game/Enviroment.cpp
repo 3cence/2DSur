@@ -10,3 +10,13 @@ Enviroment::~Enviroment()
 {
 
 }
+
+void Enviroment::tick()
+{
+
+}
+
+void Enviroment::render(QPainter&)
+{
+    
+}

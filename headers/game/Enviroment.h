@@ -1,5 +1,4 @@
 #pragma once
-#include "game/GameCore.h"
 #include "game/CoreGameObject.h"
 #include "game/Chunk.h"
 #include <QPainter>
@@ -13,6 +12,6 @@ public:
     Enviroment();
     ~Enviroment() override;
 
-    void tick(GameCore*) override;
+    void tick() override;
     void render(QPainter&) override;
 };

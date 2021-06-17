@@ -1,5 +1,4 @@
 #pragma once
-#include "game/GameCore.h"
 #include <QPainter>
 #include <QPixmap>
 #include <vector>
@@ -14,6 +13,6 @@ public:
     CoreGameObject();
     virtual ~CoreGameObject();
 
-    virtual void tick(GameCore*);
+    virtual void tick();
     virtual void render(QPainter&);
 };

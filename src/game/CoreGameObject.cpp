@@ -28,7 +28,7 @@ CoreGameObject::~CoreGameObject()
         }
 }
 
-void CoreGameObject::tick(GameCore *)
+void CoreGameObject::tick()
 {
     std::cout << "Core Tick (This does nothing!)\n";
 }

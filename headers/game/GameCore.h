@@ -1,11 +1,12 @@
 #pragma once
-// #include "game/Enviroment.h"
+#include "game/Enviroment.h"
 #include <QWidget>
 #include <QTimer>
 
 class GameCore : public QWidget
 {
     Q_OBJECT
+    static GameCore *kInstance;
 
     int tps = 0;
 
@@ -13,7 +14,7 @@ class GameCore : public QWidget
     QTimer *secondUpdates;
 public:
     QWidget *parent;
-    // Enviroment *world;
+    Enviroment *world;
 
     GameCore(QWidget*);
     ~GameCore();

@@ -1,3 +1,5 @@
+//this solves some cirular dependancy issues
+
 #include <iostream>
 #include <QApplication>
 #include <QPushButton>
