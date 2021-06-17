@@ -1,5 +1,5 @@
 #pragma once
-#include "GameCore.h"
+#include "game/GameCore.h"
 #include <QPainter>
 #include <QPixmap>
 #include <vector>

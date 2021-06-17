@@ -1,4 +1,5 @@
 #pragma once
+#include "game/Enviroment.h"
 #include <QWidget>
 #include <QTimer>
 
@@ -12,6 +13,7 @@ class GameCore : public QWidget
     QTimer *secondUpdates;
 public:
     QWidget *parent;
+    Enviroment *world;
 
     GameCore(QWidget*);
     ~GameCore();
