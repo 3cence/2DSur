@@ -2,5 +2,8 @@
 
 class Chunk
 {
-    //This is a filler class. Has not even been outlined quite yet
+public:
+    int x, y;
+
+    Chunk(int, int);
 };

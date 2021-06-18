@@ -10,14 +10,16 @@ SOURCES += \
     src/game/GameCore.cpp\
     src/game/CoreGameObject.cpp\
     src/game/Enviroment.cpp\
-    src/game/Chunk.cpp
+    src/game/Chunk.cpp\
+    src/utils/Spritesheet.cpp
 
 HEADERS +=\
     headers/MainWindow.h\
     headers/game/GameCore.h\
     headers/game/CoreGameObject.h\
     headers/game/Enviroment.h\
-    headers/game/Chunk.h
+    headers/game/Chunk.h\
+    headers/utils/Spritesheet.h
 
 
 DESTDIR += bin/dist

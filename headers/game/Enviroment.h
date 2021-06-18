@@ -1,12 +1,14 @@
 #pragma once
 #include "game/CoreGameObject.h"
 #include "game/Chunk.h"
+#include <vector>
 #include <QPainter>
-#include <unordered_map>
+#include <QPixmap>
 
 class Enviroment : public CoreGameObject
 {
-    // std::unordered_map<QPoint, Chunk> chunks;
+    std::vector<Chunk*> loadedChunks;
+    QPixmap textest;
 
 public:
     Enviroment();
