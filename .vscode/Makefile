@@ -386,6 +386,7 @@ moc_MainWindow.cpp: ../headers/MainWindow.h \
 		../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
 		../headers/game/Chunk.h \
+		../headers/utils/Spritesheet.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ecence/Documents/Programming/C++/2DSur/.vscode/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ecence/Documents/Programming/C++/2DSur -I/home/ecence/Documents/Programming/C++/2DSur/headers -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../headers/MainWindow.h -o moc_MainWindow.cpp
@@ -394,6 +395,7 @@ moc_GameCore.cpp: ../headers/game/GameCore.h \
 		../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
 		../headers/game/Chunk.h \
+		../headers/utils/Spritesheet.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ecence/Documents/Programming/C++/2DSur/.vscode/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ecence/Documents/Programming/C++/2DSur -I/home/ecence/Documents/Programming/C++/2DSur/headers -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../headers/game/GameCore.h -o moc_GameCore.cpp
@@ -418,20 +420,23 @@ bin/main.o: ../src/main.cpp ../headers/MainWindow.h \
 		../headers/game/GameCore.h \
 		../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
-		../headers/game/Chunk.h
+		../headers/game/Chunk.h \
+		../headers/utils/Spritesheet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/main.o ../src/main.cpp
 
 bin/MainWindow.o: ../src/MainWindow.cpp ../headers/MainWindow.h \
 		../headers/game/GameCore.h \
 		../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
-		../headers/game/Chunk.h
+		../headers/game/Chunk.h \
+		../headers/utils/Spritesheet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/MainWindow.o ../src/MainWindow.cpp
 
 bin/GameCore.o: ../src/game/GameCore.cpp ../headers/game/GameCore.h \
 		../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
-		../headers/game/Chunk.h
+		../headers/game/Chunk.h \
+		../headers/utils/Spritesheet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/GameCore.o ../src/game/GameCore.cpp
 
 bin/CoreGameObject.o: ../src/game/CoreGameObject.cpp ../headers/game/CoreGameObject.h
@@ -439,7 +444,8 @@ bin/CoreGameObject.o: ../src/game/CoreGameObject.cpp ../headers/game/CoreGameObj
 
 bin/Enviroment.o: ../src/game/Enviroment.cpp ../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
-		../headers/game/Chunk.h
+		../headers/game/Chunk.h \
+		../headers/utils/Spritesheet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/Enviroment.o ../src/game/Enviroment.cpp
 
 bin/Chunk.o: ../src/game/Chunk.cpp ../headers/game/Chunk.h
