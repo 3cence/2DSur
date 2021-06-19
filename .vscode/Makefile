@@ -152,7 +152,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../headers/game/CoreGameObject.h \
 		../headers/game/Enviroment.h \
 		../headers/game/Chunk.h \
-		../headers/utils/Spritesheet.h ../src/main.cpp \
+		../headers/utils/Spritesheet.h \
+		headers/utils/ResourcePath.h ../src/main.cpp \
 		../src/MainWindow.cpp \
 		../src/game/GameCore.cpp \
 		../src/game/CoreGameObject.cpp \
@@ -345,7 +346,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../headers/MainWindow.h ../headers/game/GameCore.h ../headers/game/CoreGameObject.h ../headers/game/Enviroment.h ../headers/game/Chunk.h ../headers/utils/Spritesheet.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../headers/MainWindow.h ../headers/game/GameCore.h ../headers/game/CoreGameObject.h ../headers/game/Enviroment.h ../headers/game/Chunk.h ../headers/utils/Spritesheet.h headers/utils/ResourcePath.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../src/main.cpp ../src/MainWindow.cpp ../src/game/GameCore.cpp ../src/game/CoreGameObject.cpp ../src/game/Enviroment.cpp ../src/game/Chunk.cpp ../src/utils/Spritesheet.cpp $(DISTDIR)/
 
 
@@ -445,7 +446,8 @@ bin/CoreGameObject.o: ../src/game/CoreGameObject.cpp ../headers/game/CoreGameObj
 bin/Enviroment.o: ../src/game/Enviroment.cpp ../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
 		../headers/game/Chunk.h \
-		../headers/utils/Spritesheet.h
+		../headers/utils/Spritesheet.h \
+		../headers/utils/AssetPath.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/Enviroment.o ../src/game/Enviroment.cpp
 
 bin/Chunk.o: ../src/game/Chunk.cpp ../headers/game/Chunk.h

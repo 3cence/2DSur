@@ -10,6 +10,8 @@ class Enviroment : public CoreGameObject
 {
     std::vector<Chunk*> loadedChunks;
 
+    Spritesheet *earthTextures;
+
 public:
     Enviroment();
     ~Enviroment() override;

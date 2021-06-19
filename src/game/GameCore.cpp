@@ -62,7 +62,7 @@ void GameCore::tick()
 void GameCore::onSec()
 {
     parent->setWindowTitle((std::string("2DSur: ") + std::to_string(tps) + std::string(" Tps")).c_str());
-    std::cout << tps << std::endl;
+    // std::cout << tps << std::endl;
     tps = 0;
 }
 
