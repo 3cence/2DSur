@@ -66,6 +66,11 @@ void GameCore::onSec()
     tps = 0;
 }
 
+GameCore* GameCore::getCore()
+{
+    return kInstance;
+}
+
 GameCore::~GameCore()
 {
     std::cout << "Ending the World\n";

@@ -9,6 +9,9 @@
 class Enviroment : public CoreGameObject
 {
     std::vector<Chunk*> loadedChunks;
+    std::vector<Chunk*> activeChunks;
+
+    int tmpPlayerChunk[2] = {12, 16};
 
     Spritesheet *earthTextures;
 

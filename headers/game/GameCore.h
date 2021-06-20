@@ -16,6 +16,8 @@ public:
     QWidget *parent;
     Enviroment *world;
 
+    static GameCore* getCore();
+
     GameCore(QWidget*);
     ~GameCore();
 

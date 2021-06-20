@@ -17,7 +17,20 @@ Enviroment::~Enviroment()
 
 void Enviroment::tick()
 {
-    
+    std::vector<QPoint> activeChunkCoords;
+
+    for (int xi = -1; xi <= 1; xi++)
+    {
+        for (int yi = -1; yi <= 1; yi++)
+        {
+            activeChunkCoords.push_back(QPoint(tmpPlayerChunk[0] + xi, tmpPlayerChunk[1] + yi));
+        }
+    }
+
+    for (int i = 0; i < activeChunkCoords.size(); i++)
+    {
+        std::cout << activeChunkCoords[i].x() << " " << activeChunkCoords[i].y() << std::endl;
+    }
 }
 
 void Enviroment::render(QPainter &pnt)
@@ -29,7 +42,7 @@ void Enviroment::render(QPainter &pnt)
         for (int xi = 0; xi < 4; xi++)
         {
             pnt.drawPixmap(QRect(width * xi, height * yi, width, height),
-                                    earthTextures->frames[loadedChunks[1]->texmap[xi][yi]]);
+                                    earthTextures->frames[loadedChunks[0]->texmap[xi][yi]]);
         }
     }
 }
