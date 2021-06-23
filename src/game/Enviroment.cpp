@@ -19,9 +19,9 @@ void Enviroment::tick()
 {
     std::vector<QPoint> activeChunkCoords;
 
-    for (int xi = -1; xi <= 1; xi++)
+    for (int yi = 1; yi >= -1; yi--)
     {
-        for (int yi = -1; yi <= 1; yi++)
+        for (int xi = -1; xi <= 1; xi++)
         {
             activeChunkCoords.push_back(QPoint(tmpPlayerChunk[0] + xi, tmpPlayerChunk[1] + yi));
         }
