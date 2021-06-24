@@ -45,28 +45,28 @@ void Enviroment::tick()
             throw "Missing Chunk";
         }
     }
-
-    std::cout << activeChunks.size() << std::endl;
 }
 
 void Enviroment::render(QPainter &pnt)
 {
-    double sizeMultiplier = .90;
+    double sizeMultiplier = 2.5;
+    int tileWH[2] = {4, 4};
     int width = earthTextures->width() * sizeMultiplier;
     int height = earthTextures->height() * sizeMultiplier;
     for (int chnk = 0; chnk < activeChunks.size(); chnk++)
     {
-        int chunkPosX = (chnk % 3) * sizeMultiplier * earthTextures->width() * 3;
-        int chunkPosY = (chnk / 3) * sizeMultiplier * earthTextures->height() * 3;
-        for (int yi = 0; yi < 4; yi++)
+        int chunkPosX = (chnk % 3) * width * tileWH[0];
+        int chunkPosY = (chnk / 3) * height * tileWH[1];
+        for (int yi = 0; yi < tileWH[1]; yi++)
         {
-            for (int xi = 0; xi < 4; xi++)
+            for (int xi = 0; xi < tileWH[0]; xi++)
             {
-                QRect squareToPut((width * xi) + chunkPosX + 100, (height * yi) + chunkPosY + 100, width, height);
+                QRect squareToPut((width * xi) + chunkPosX - 40, (height * yi) + chunkPosY, width, height);
                 pnt.drawPixmap(squareToPut, earthTextures->frames[activeChunks[chnk]->texmap[xi][yi]]);
                 pnt.setPen(Qt::blue);
                 pnt.setBrush(Qt::NoBrush);
                 pnt.drawRect(squareToPut);
+                pnt.drawText(QPoint(squareToPut.x() + 10, squareToPut.y() + 15), QString(chnk + 48));
             }
         }
     }
