@@ -1,6 +1,7 @@
 #include "game/Enviroment.h"
 #include "utils/AssetPath.h"
 #include <iostream>
+#include <string>
 
 Enviroment::Enviroment()
     : CoreGameObject()
@@ -62,11 +63,12 @@ void Enviroment::render(QPainter &pnt)
             for (int xi = 0; xi < tileWH[0]; xi++)
             {
                 QRect squareToPut((width * xi) + chunkPosX - 40, (height * yi) + chunkPosY, width, height);
+                QString chnkInfo = QString("[") + QString(std::to_string(activeChunks[chnk]->x).c_str()) + QString(", ") + QString(std::to_string(activeChunks[chnk]->y).c_str()) + QString("]");
                 pnt.drawPixmap(squareToPut, earthTextures->frames[activeChunks[chnk]->texmap[xi][yi]]);
                 pnt.setPen(Qt::blue);
                 pnt.setBrush(Qt::NoBrush);
                 pnt.drawRect(squareToPut);
-                pnt.drawText(QPoint(squareToPut.x() + 10, squareToPut.y() + 15), QString(chnk + 48));
+                pnt.drawText(QPoint(squareToPut.x() + 10, squareToPut.y() + 15), chnkInfo);
             }
         }
     }

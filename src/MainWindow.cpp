@@ -16,5 +16,5 @@ MainWindow::MainWindow()
 
 void MainWindow::resizeEvent(QResizeEvent *)
 {
-    std::cout << width() << " " << height() << std::endl;
+    
 }
