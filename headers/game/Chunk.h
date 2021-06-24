@@ -4,7 +4,7 @@ class Chunk
 {
 public:
     int x, y;
-    int texmap[4][4];
+    int texmap[8][8];
 
     Chunk(int, int);
 };

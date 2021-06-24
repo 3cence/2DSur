@@ -49,8 +49,8 @@ void Enviroment::tick()
 
 void Enviroment::render(QPainter &pnt)
 {
-    double sizeMultiplier = 2.5;
-    int tileWH[2] = {4, 4};
+    double sizeMultiplier = 1.5;
+    int tileWH[2] = {8, 8};
     int width = earthTextures->width() * sizeMultiplier;
     int height = earthTextures->height() * sizeMultiplier;
     for (int chnk = 0; chnk < activeChunks.size(); chnk++)
