@@ -19,6 +19,8 @@ public:
     Enviroment();
     ~Enviroment() override;
 
+    Chunk* getLoadedChunk(int, int);
+
     void tick() override;
     void render(QPainter&) override;
 };
