@@ -18,6 +18,7 @@ Chunk::Chunk(int x, int y)
                 texmap[xi][yi] = 0;
         }
     }
+    // std::cout << this->x << " " << this->y << std::endl;
     // for (int xi = 0; xi < 8; xi++)
     // {
     //     for (int yi = 0; yi < 8; yi++)
