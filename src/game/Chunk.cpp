@@ -2,10 +2,10 @@
 #include <iostream>
 #include <random>
 
-Chunk::Chunk(int x, int y)
+Chunk::Chunk(int loadX, int loadY)
 {
-    this->x = x;
-    this->y = y;
+    this->x = loadX;
+    this->y = loadY;
     
     for (int xi = 0; xi < 8; xi++)
     {

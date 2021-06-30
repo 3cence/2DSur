@@ -21,7 +21,7 @@ void Enviroment::tick()
     {
         for (int xi = -1; xi <= 1; xi++)
         {
-            activeChunks.push_back(getLoadedChunk(xi, yi));
+            activeChunks.push_back(getLoadedChunk(tmpPlayerChunk[0]+ xi, tmpPlayerChunk[1] + yi));
         }
     }
 }
@@ -44,11 +44,11 @@ void Enviroment::render(QPainter &pnt)
                 pnt.drawPixmap(squareToPut, earthTextures->frames[activeChunks[chnk]->texmap[xi][yi]]);
 
                 //This is debugging stuff
-                QString chnkInfo = QString("[") + QString(std::to_string(activeChunks[chnk]->x).c_str()) + QString(", ") + QString(std::to_string(activeChunks[chnk]->y).c_str()) + QString("]");
-                pnt.setPen(Qt::blue);
-                pnt.setBrush(Qt::NoBrush);
-                pnt.drawRect(squareToPut);
-                pnt.drawText(QPoint(squareToPut.x() + 10, squareToPut.y() + 15), chnkInfo);
+                // QString chnkInfo = QString("[") + QString(std::to_string(activeChunks[chnk]->x).c_str()) + QString(", ") + QString(std::to_string(activeChunks[chnk]->y).c_str()) + QString("]");
+                // pnt.setPen(Qt::blue);
+                // pnt.setBrush(Qt::NoBrush);
+                // pnt.drawRect(squareToPut);
+                // pnt.drawText(QPoint(squareToPut.x() + 10, squareToPut.y() + 15), chnkInfo);
             }
         }
     }
@@ -59,7 +59,7 @@ Chunk* Enviroment::getLoadedChunk(int x, int y)
     Chunk* result = nullptr;
     for (int i = 0; i < loadedChunks.size(); i++)
     {
-        if (loadedChunks[i]->x == x && loadedChunks[0]->y == y)
+        if (loadedChunks[i]->x == x && loadedChunks[i]->y == y)
         {
             result = loadedChunks[i];
         }
