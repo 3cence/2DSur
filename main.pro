@@ -11,6 +11,7 @@ SOURCES += \
     src/game/CoreGameObject.cpp\
     src/game/Enviroment.cpp\
     src/game/Chunk.cpp\
+    src/game/Player.cpp\
     src/utils/Spritesheet.cpp
 
 HEADERS +=\
@@ -19,6 +20,7 @@ HEADERS +=\
     headers/game/CoreGameObject.h\
     headers/game/Enviroment.h\
     headers/game/Chunk.h\
+    headers/game/Player.h\
     headers/utils/Spritesheet.h\
     headers/utils/ResourcePath.h
 

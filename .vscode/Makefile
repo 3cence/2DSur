@@ -58,6 +58,7 @@ SOURCES       = ../src/main.cpp \
 		../src/game/CoreGameObject.cpp \
 		../src/game/Enviroment.cpp \
 		../src/game/Chunk.cpp \
+		../src/game/Player.cpp \
 		../src/utils/Spritesheet.cpp moc_MainWindow.cpp \
 		moc_GameCore.cpp
 OBJECTS       = bin/main.o \
@@ -66,6 +67,7 @@ OBJECTS       = bin/main.o \
 		bin/CoreGameObject.o \
 		bin/Enviroment.o \
 		bin/Chunk.o \
+		bin/Player.o \
 		bin/Spritesheet.o \
 		bin/moc_MainWindow.o \
 		bin/moc_GameCore.o
@@ -152,6 +154,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../headers/game/CoreGameObject.h \
 		../headers/game/Enviroment.h \
 		../headers/game/Chunk.h \
+		../headers/game/Player.h \
 		../headers/utils/Spritesheet.h \
 		headers/utils/ResourcePath.h ../src/main.cpp \
 		../src/MainWindow.cpp \
@@ -159,6 +162,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../src/game/CoreGameObject.cpp \
 		../src/game/Enviroment.cpp \
 		../src/game/Chunk.cpp \
+		../src/game/Player.cpp \
 		../src/utils/Spritesheet.cpp
 QMAKE_TARGET  = main
 DESTDIR       = bin/dist/
@@ -346,8 +350,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../headers/MainWindow.h ../headers/game/GameCore.h ../headers/game/CoreGameObject.h ../headers/game/Enviroment.h ../headers/game/Chunk.h ../headers/utils/Spritesheet.h headers/utils/ResourcePath.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/main.cpp ../src/MainWindow.cpp ../src/game/GameCore.cpp ../src/game/CoreGameObject.cpp ../src/game/Enviroment.cpp ../src/game/Chunk.cpp ../src/utils/Spritesheet.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../headers/MainWindow.h ../headers/game/GameCore.h ../headers/game/CoreGameObject.h ../headers/game/Enviroment.h ../headers/game/Chunk.h ../headers/game/Player.h ../headers/utils/Spritesheet.h headers/utils/ResourcePath.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/main.cpp ../src/MainWindow.cpp ../src/game/GameCore.cpp ../src/game/CoreGameObject.cpp ../src/game/Enviroment.cpp ../src/game/Chunk.cpp ../src/game/Player.cpp ../src/utils/Spritesheet.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -437,7 +441,8 @@ bin/GameCore.o: ../src/game/GameCore.cpp ../headers/game/GameCore.h \
 		../headers/game/Enviroment.h \
 		../headers/game/CoreGameObject.h \
 		../headers/game/Chunk.h \
-		../headers/utils/Spritesheet.h
+		../headers/utils/Spritesheet.h \
+		../headers/game/Player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/GameCore.o ../src/game/GameCore.cpp
 
 bin/CoreGameObject.o: ../src/game/CoreGameObject.cpp ../headers/game/CoreGameObject.h
@@ -452,6 +457,10 @@ bin/Enviroment.o: ../src/game/Enviroment.cpp ../headers/game/Enviroment.h \
 
 bin/Chunk.o: ../src/game/Chunk.cpp ../headers/game/Chunk.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/Chunk.o ../src/game/Chunk.cpp
+
+bin/Player.o: ../src/game/Player.cpp ../headers/game/Player.h \
+		../headers/game/CoreGameObject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/Player.o ../src/game/Player.cpp
 
 bin/Spritesheet.o: ../src/utils/Spritesheet.cpp ../headers/utils/Spritesheet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bin/Spritesheet.o ../src/utils/Spritesheet.cpp

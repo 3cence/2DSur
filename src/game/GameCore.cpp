@@ -1,6 +1,7 @@
 #include "game/GameCore.h"
 #include "game/CoreGameObject.h"
 #include "game/Enviroment.h"
+#include "game/Player.h"
 #include <iostream>
 #include <string>
 #include <QWidget>
@@ -26,6 +27,7 @@ GameCore::GameCore(QWidget *parent)
         secondUpdates->start();
 
         world = new Enviroment;
+        new Player();
     }
     else
     {
