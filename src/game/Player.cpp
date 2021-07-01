@@ -2,7 +2,7 @@
 #include <iostream>
 
 Player::Player()
-    : CoreGameObject()
+    : CoreGameObject(5)
 {
     
 }

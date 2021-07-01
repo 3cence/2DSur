@@ -4,7 +4,7 @@
 #include <string>
 
 Enviroment::Enviroment()
-    : CoreGameObject()
+    : CoreGameObject(0)
 {
     earthTextures = new Spritesheet(assetPath("world/groundTiles.png"), 2, 4, 8);
 }
