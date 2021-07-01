@@ -3,6 +3,7 @@
 #include <vector>
 
 std::vector<CoreGameObject*> CoreGameObject::CoreGameObjects = {};
+bool CoreGameObject::modified = true;
 
 CoreGameObject::CoreGameObject(int priority)
 {
@@ -15,6 +16,7 @@ CoreGameObject::CoreGameObject(int priority)
     std::cout << "UUID: " << UUID << std::endl;
 
     CoreGameObjects.push_back(this);
+    modified = true;
 }
 
 CoreGameObject::~CoreGameObject()
@@ -24,6 +26,7 @@ CoreGameObject::~CoreGameObject()
             if (CoreGameObjects[i]->UUID == UUID)
             {
                 CoreGameObjects.erase(CoreGameObjects.begin() + i);
+                modified = true;
                 std::cout << "UUID " << UUID << " Destroyed. " << CoreGameObjects.size() << "\n";
                 break;
             }
