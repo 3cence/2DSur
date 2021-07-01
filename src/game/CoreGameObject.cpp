@@ -4,11 +4,13 @@
 
 std::vector<CoreGameObject*> CoreGameObject::CoreGameObjects = {};
 
-CoreGameObject::CoreGameObject()
+CoreGameObject::CoreGameObject(int priority)
 {
     UUID = rand();
     UUID *= rand();
     UUID *= rand();
+
+    objectPriority = priority;
 
     std::cout << "UUID: " << UUID << std::endl;
 

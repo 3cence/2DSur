@@ -9,8 +9,9 @@ class CoreGameObject
 
 public:
     static std::vector<CoreGameObject*> CoreGameObjects;
+    int objectPriority;
 
-    CoreGameObject();
+    CoreGameObject(int);
     virtual ~CoreGameObject();
 
     virtual void tick();
