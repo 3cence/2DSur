@@ -5,7 +5,7 @@
 class Player : public CoreGameObject
 {
 public:
-    Player();
+    Player(int);
 
     void tick() override;
     void render(QPainter&) override;

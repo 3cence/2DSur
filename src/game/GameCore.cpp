@@ -26,8 +26,10 @@ GameCore::GameCore(QWidget *parent)
         ticker->start();
         secondUpdates->start();
 
+        new Player(7);
+        new Player(6);
+        player = new Player(1);
         world = new Enviroment;
-        player = new Player;
     }
     else
     {
@@ -62,37 +64,22 @@ void GameCore::tick()
     if (CoreGameObject::Modified)
     {
         std::cout << "resorting objects\n";
-        CoreGameObject::OrderedCoreGameObjects.clear();
-        CoreGameObject *lowestUnsorted = nullptr;
-        bool hasBeenAdded = false;
-        for (CoreGameObject *cgo : CoreGameObject::CoreGameObjects)
+        bool noSwaps = false;
+
+        while (!noSwaps)
         {
-            if (lowestUnsorted == nullptr)
+            noSwaps = true;
+            for (int i = 0; i < CoreGameObject::CoreGameObjects.size() - 1; i++)
             {
-                lowestUnsorted = cgo;
-            }
-
-            if (cgo->objectPriority < lowestUnsorted->objectPriority)
-            {
-                hasBeenAdded = false;
-                for (CoreGameObject *cgoe : CoreGameObject::OrderedCoreGameObjects)
+                if (CoreGameObject::CoreGameObjects[i]->objectPriority > CoreGameObject::CoreGameObjects[i + 1]->objectPriority)
                 {
-                    if (cgo == cgoe)
-                    {
-                        hasBeenAdded = true;
-                    }
+                    std::swap(CoreGameObject::CoreGameObjects[i]->objectPriority,
+                        CoreGameObject::CoreGameObjects[i + 1]->objectPriority);
+                    noSwaps = false;
                 }
-                if (!hasBeenAdded)
-                {
-                    lowestUnsorted = cgo;
-                }
-            }
-
-            if (CoreGameObject::CoreGameObjects.size() != CoreGameObject::OrderedCoreGameObjects.size())
-            {
-                CoreGameObject::OrderedCoreGameObjects.push_back(lowestUnsorted);
             }
         }
+        
         CoreGameObject::Modified = false;
     }
 

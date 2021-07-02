@@ -1,8 +1,8 @@
 #include "game/Player.h"
 #include <iostream>
 
-Player::Player()
-    : CoreGameObject(5)
+Player::Player(int p)
+    : CoreGameObject(p)
 {
     
 }
