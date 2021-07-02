@@ -26,9 +26,7 @@ GameCore::GameCore(QWidget *parent)
         ticker->start();
         secondUpdates->start();
 
-        new Player(7);
-        new Player(6);
-        player = new Player(1);
+        player = new Player;
         world = new Enviroment;
     }
     else
