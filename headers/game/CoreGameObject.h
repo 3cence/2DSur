@@ -9,7 +9,8 @@ class CoreGameObject
 
 public:
     static std::vector<CoreGameObject*> CoreGameObjects;
-    static bool modified;
+    static std::vector<CoreGameObject*> OrderedCoreGameObjects;
+    static bool Modified;
     int objectPriority;
 
     CoreGameObject(int);

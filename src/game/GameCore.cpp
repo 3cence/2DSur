@@ -27,7 +27,7 @@ GameCore::GameCore(QWidget *parent)
         secondUpdates->start();
 
         world = new Enviroment;
-        new Player();
+        player = new Player;
     }
     else
     {
@@ -56,6 +56,44 @@ void GameCore::tick()
     for (int i = 0; i < (int)CoreGameObject::CoreGameObjects.size(); i++)
     {
         CoreGameObject::CoreGameObjects[i]->tick();
+    }
+
+    //makes sure the game renders the right things on the correct layers
+    if (CoreGameObject::Modified)
+    {
+        std::cout << "resorting objects\n";
+        CoreGameObject::OrderedCoreGameObjects.clear();
+        CoreGameObject *lowestUnsorted = nullptr;
+        bool hasBeenAdded = false;
+        for (CoreGameObject *cgo : CoreGameObject::CoreGameObjects)
+        {
+            if (lowestUnsorted == nullptr)
+            {
+                lowestUnsorted = cgo;
+            }
+
+            if (cgo->objectPriority < lowestUnsorted->objectPriority)
+            {
+                hasBeenAdded = false;
+                for (CoreGameObject *cgoe : CoreGameObject::OrderedCoreGameObjects)
+                {
+                    if (cgo == cgoe)
+                    {
+                        hasBeenAdded = true;
+                    }
+                }
+                if (!hasBeenAdded)
+                {
+                    lowestUnsorted = cgo;
+                }
+            }
+
+            if (CoreGameObject::CoreGameObjects.size() != CoreGameObject::OrderedCoreGameObjects.size())
+            {
+                CoreGameObject::OrderedCoreGameObjects.push_back(lowestUnsorted);
+            }
+        }
+        CoreGameObject::Modified = false;
     }
 
     repaint();
