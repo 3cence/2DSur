@@ -21,8 +21,7 @@ HEADERS +=\
     headers/game/Enviroment.h\
     headers/game/Chunk.h\
     headers/game/Player.h\
-    headers/utils/Spritesheet.h\
-    headers/utils/ResourcePath.h
+    headers/utils/Spritesheet.h
 
 
 DESTDIR += bin/dist

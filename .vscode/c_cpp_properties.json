@@ -4,7 +4,8 @@
             "name": "Qt",
             "includePath": [
                 "${workspaceFolder}/headers/**",
-                "/Qt/5.15.2/gcc_64/include/**"
+                "/home/ecence/Qt/6.3.1/gcc_64/include",
+                "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
