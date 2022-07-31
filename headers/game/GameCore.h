@@ -21,7 +21,7 @@ public:
     static GameCore* getCore();
 
     GameCore(QWidget*);
-    ~GameCore();
+    virtual ~GameCore();
 
 protected:
     void paintEvent(QPaintEvent*) override;

@@ -18,3 +18,8 @@ void MainWindow::resizeEvent(QResizeEvent *)
 {
     
 }
+
+MainWindow::~MainWindow()
+{
+
+}

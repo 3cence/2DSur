@@ -5,13 +5,16 @@
             "includePath": [
                 "${workspaceFolder}/headers/**",
                 "/home/ecence/Qt/6.3.1/gcc_64/include",
-                "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
+                "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+                "/home/ecence/Qt/6.3.1/gcc_64/include/QtWidgets",
+                "/home/ecence/Qt/6.3.1/gcc_64/include/QtCore"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++14",
-            "intelliSenseMode": "linux-gcc-x64"
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

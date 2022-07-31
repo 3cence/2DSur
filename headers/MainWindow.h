@@ -1,6 +1,7 @@
 #pragma once
 #include <QMainWindow>
 #include <QResizeEvent>
+#include <QObject>
 #include "game/GameCore.h"
 
 class MainWindow : public QMainWindow
@@ -11,6 +12,7 @@ class MainWindow : public QMainWindow
     
 public:
     MainWindow();
+    virtual ~MainWindow();
 
     void resizeEvent(QResizeEvent*) override;
 };
