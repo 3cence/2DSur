@@ -6,6 +6,8 @@
 Enviroment::Enviroment()
     : CoreGameObject(0)
 {
+    ///home/ecence/Documents/C++/2DSur/assets/world/groundTiles.png
+    ///home/ecence/Documents/Programming/C++/2DSur/assets/world/groundTiles.png"
     earthTextures = new Spritesheet(assetPath("world/groundTiles.png"), 2, 4, 8);
 }
 
@@ -43,9 +45,9 @@ void Enviroment::render(QPainter &pnt)
                 QRect squareToPut((width * xi) + chunkPosX - 150, (height * yi) + chunkPosY - 350, width, height);
                 pnt.drawPixmap(squareToPut, earthTextures->frames[activeChunks[chnk]->texmap[xi][yi]]);
 
-                //This is debugging stuff
+                // This is debugging stuff
                 // QString chnkInfo = QString("[") + QString(std::to_string(activeChunks[chnk]->x).c_str()) + QString(", ") + QString(std::to_string(activeChunks[chnk]->y).c_str()) + QString("]");
-                // pnt.setPen(Qt::blue);
+                // pnt.setPen(Qt::red);
                 // pnt.setBrush(Qt::NoBrush);
                 // pnt.drawRect(squareToPut);
                 // pnt.drawText(QPoint(squareToPut.x() + 10, squareToPut.y() + 15), chnkInfo);

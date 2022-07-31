@@ -40,7 +40,7 @@ void GameCore::paintEvent(QPaintEvent *)
     QPainter pnt(this);
 
     //This rectangle shows if something went wrong
-    pnt.setBrush(Qt::blue);
+    pnt.setBrush(Qt::red);
     pnt.drawRect(geometry());
 
     for (int i = 0; i < (int)CoreGameObject::CoreGameObjects.size(); i++)

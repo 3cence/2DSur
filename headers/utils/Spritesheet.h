@@ -7,10 +7,10 @@
 
 class Spritesheet
 {
-    QPixmap fullSheet;
     int xlen, ylen;
 
 public:
+    QPixmap fullSheet;
     std::vector<QPixmap> frames;
     Spritesheet(std::string, int, int, int);
     ~Spritesheet();

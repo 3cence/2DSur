@@ -6,7 +6,10 @@
 
 Spritesheet::Spritesheet(std::string path, int collumns, int rows, int frameCount)
 {
-    fullSheet.load(path.c_str());
+    if (!fullSheet.load(path.c_str()))
+    {
+        std::cerr << "Could not load spritesheet at " + path + "\n";
+    }
     xlen = fullSheet.width() / collumns;
     ylen = fullSheet.height() / rows;
 
